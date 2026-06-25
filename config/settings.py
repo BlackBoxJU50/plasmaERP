@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     # 'apps.crm',
     # 'apps.production',
     # 'apps.accounting',
-    # 'apps.human_resources',
+    'apps.hrm',
     # 'apps.settings',    
 ]
 
