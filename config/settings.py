@@ -38,18 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    # Custom Apps
+    
     'apps.accounts',
     'apps.core',
-    # 'apps.dashboard',
-    # 'apps.inventory',
-    # 'apps.sales',
-    # 'apps.purchase',
-    # 'apps.crm',
-    # 'apps.production',
-    # 'apps.accounting',
+    'apps.inventory',
+    'apps.sales',
+    'apps.procurement',
+    'apps.finance',
     'apps.hrm',
-    # 'apps.settings',    
+    'apps.approval',
+    'apps.audit',
+    'apps.reports',
+    'apps.notifications',    
 ]
 
 MIDDLEWARE = [

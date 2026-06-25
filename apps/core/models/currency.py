@@ -10,4 +10,6 @@ class Currency(BaseModel):
 
 
     def __str__(self):
-        return f"{self.code}"
+        return f"{self.code}-{self.name}"
+
+  

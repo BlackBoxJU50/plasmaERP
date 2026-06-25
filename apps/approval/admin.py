@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import ApprovalFlow
 
-# Register your models here.
+@admin.register(ApprovalFlow)
+class ApprovalFlowAdmin(admin.ModelAdmin):
+    list_display = ('name', 'module')
