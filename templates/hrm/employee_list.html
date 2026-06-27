@@ -58,8 +58,10 @@
                         {% endif %}
                     </td>
                     <td class="px-6 py-4 text-right text-sm font-medium">
-                        <a href="#" class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
-                        <a href="#" class="text-gray-400 hover:text-gray-600">View</a>
+                        <a href="{% url 'hrm:employee_edit' employee.pk %}"
+                            class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
+                        <a href="{% url 'hrm:employee_delete' employee.pk %}"
+                            class="text-gray-400 hover:text-gray-600">Delete</a>
                     </td>
                 </tr>
                 {% empty %}

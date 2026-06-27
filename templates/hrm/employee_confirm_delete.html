@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="max-w-lg mx-auto mt-12">
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
+
+        <div class="text-red-500 text-5xl mb-4">&#9888;</div>
+        <h2 class="text-xl font-semibold text-gray-800 mb-2">Confirm Deletion</h2>
+        <p class="text-gray-500 mb-6">
+            Are you sure you want to permanently delete
+            <strong class="text-gray-800">{{ employee.first_name }} {{ employee.last_name }}</strong>?
+            This action cannot be undone.
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="flex justify-center space-x-4">
+                <a href="{% url 'hrm:employee_list' %}"
+                    class="bg-white py-2 px-6 border border-gray-300 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    Cancel
+                </a>
+                <button type="submit"
+                    class="bg-red-600 border border-transparent rounded-md py-2 px-6 text-sm font-medium text-white hover:bg-red-700">
+                    Yes, Delete
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
