@@ -11,6 +11,8 @@ def employee_list_view(request):
     }
     return render(request, 'hrm/employee_list.html', context)
 
+    
+@login_required(login_url='login')
 def employee_create_view(request): 
 
     if request.method == 'POST': 
