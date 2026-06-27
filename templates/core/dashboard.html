@@ -1,0 +1,55 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="mb-6">
+    <p class="text-gray-500 text-sm">Welcome back. Here is what's happening today.</p>
+</div>
+
+<!-- Stats Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+
+    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider">Total Sales</h3>
+            <span class="text-green-500 text-sm font-semibold">+4.75%</span>
+        </div>
+        <div class="mt-4 text-3xl font-bold text-gray-800">$124,500</div>
+    </div>
+
+    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider">Active Employees</h3>
+        </div>
+        <div class="mt-4 text-3xl font-bold text-gray-800">42</div>
+    </div>
+
+    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider">Pending POs</h3>
+            <span class="text-orange-500 text-sm font-semibold">Action Required</span>
+        </div>
+        <div class="mt-4 text-3xl font-bold text-gray-800">12</div>
+    </div>
+
+    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+        <div class="flex items-center justify-between">
+            <h3 class="text-sm font-medium text-gray-500 uppercase tracking-wider">Low Stock Items</h3>
+        </div>
+        <div class="mt-4 text-3xl font-bold text-red-600">8</div>
+    </div>
+
+</div>
+
+<!-- Main Panels -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2 bg-white rounded-lg border border-gray-200 p-6 shadow-sm min-h-[300px]">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Recent Activity</h3>
+        <p class="text-gray-500 text-sm">Activity feed will load here.</p>
+    </div>
+
+    <div class="bg-white rounded-lg border border-gray-200 p-6 shadow-sm min-h-[300px]">
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">Approvals Pending</h3>
+        <p class="text-gray-500 text-sm">No pending approvals.</p>
+    </div>
+</div>
+{% endblock %}
