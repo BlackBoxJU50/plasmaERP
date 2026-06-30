@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="flex items-center mb-6">
+        <a href="{% url 'hrm:attendance_list' %}" class="text-blue-600 hover:text-blue-800 mr-4">&larr; Back</a>
+        <h2 class="text-2xl font-semibold text-gray-800">Manual Attendance Entry</h2>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <form method="POST" class="p-8">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div><label class="block text-sm font-medium text-gray-700">Employee</label>{{ form.employee }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Date</label>{{ form.date }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Check In</label>{{ form.check_in }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Check Out</label>{{ form.check_out }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Working Hours</label>{{ form.working_hours }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Status</label>{{ form.status }}</div>
+            </div>
+            <div class="flex justify-end border-t pt-4">
+                <button type="submit" class="bg-blue-600 text-white rounded-md py-2 px-4">Save Entry</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

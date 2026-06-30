@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', dashboard_view, name='dashboard'),
     path('', include('django.contrib.auth.urls')),
-    path('hrm', include("apps.hrm.urls"))
+    path('hrm/', include("apps.hrm.urls"))
 ]

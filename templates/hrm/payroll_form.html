@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="flex items-center mb-6">
+        <a href="{% url 'hrm:payroll_list' %}" class="text-blue-600 hover:text-blue-800 mr-4">&larr; Back to Payroll</a>
+        <h2 class="text-2xl font-semibold text-gray-800">Payroll Processing</h2>
+    </div>
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <form method="POST" class="p-8">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div><label class="block text-sm font-medium text-gray-700">Employee</label>{{ form.employee }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Month</label>{{ form.month }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Basic Salary</label>{{ form.basic_salary }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Allowance</label>{{ form.allowance }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Bonus</label>{{ form.bonus }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Deduction</label>{{ form.deduction }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Net Salary</label>{{ form.net_salary }}</div>
+                <div><label class="block text-sm font-medium text-gray-700">Paid Status</label>{{ form.paid_status }}</div>
+            </div>
+            <div class="flex justify-end border-t pt-4">
+                <button type="submit" class="bg-blue-600 text-white rounded-md py-2 px-4">Save Payroll</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

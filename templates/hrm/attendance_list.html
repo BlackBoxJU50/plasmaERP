@@ -1,0 +1,45 @@
+{% extends 'base/base.html' %}
+{% block content %}
+<div class="flex justify-between items-center mb-6">
+    <div>
+        <h2 class="text-2xl font-semibold text-gray-800">Attendance Records</h2>
+        <p class="text-sm text-gray-500">Auto-syncs with Google Sheets</p>
+    </div>
+    <a href="{% url 'hrm:attendance_add' %}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+        + Manual Attendance
+    </a>
+</div>
+<div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+    <table class="w-full whitespace-nowrap">
+        <thead>
+            <tr class="bg-gray-50 border-b border-gray-200 text-left text-xs font-semibold text-gray-500 uppercase">
+                <th class="px-6 py-4">Employee</th>
+                <th class="px-6 py-4">Date</th>
+                <th class="px-6 py-4">Check In</th>
+                <th class="px-6 py-4">Check Out</th>
+                <th class="px-6 py-4">Hours</th>
+                <th class="px-6 py-4">Status</th>
+            </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+            {% for record in attendances %}
+            <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 text-sm">{{ record.employee }}</td>
+                <td class="px-6 py-4 text-sm">{{ record.date }}</td>
+                <td class="px-6 py-4 text-sm">{{ record.check_in|time:"H:i"|default:"-" }}</td>
+                <td class="px-6 py-4 text-sm">{{ record.check_out|time:"H:i"|default:"-" }}</td>
+                <td class="px-6 py-4 text-sm">{{ record.working_hours|default:"-" }}</td>
+                <td class="px-6 py-4 text-sm">
+                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
+                        {% if record.status == 'Present' %}bg-green-100 text-green-800{% else %}bg-gray-100 text-gray-800{% endif %}">
+                        {{ record.status }}
+                    </span>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="6" class="px-6 py-8 text-center text-gray-500">No attendance records found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
